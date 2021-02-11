@@ -6,7 +6,7 @@ const refs = {
   searchForm: document.querySelector('js-search-form'),
 };
 
-refs.searchForm.addEventListener('input', event => {
+refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();
   const form = event.currentTarget;
   const imputValue = form.elements.query.value;
@@ -20,8 +20,9 @@ function fetchCountries(searchCountry) {
   fetch(url)
     .then(res => res.json())
     .then(({ articles }) => {
-      const markup = articlesTmpl(articles);
-      refs.articlesContainer.insertAdjacentHTML('beforeend', markup);
+      // const markup = articlesTmpl(articles);
+      // refs.articlesContainer.insertAdjacentHTML('beforeend', markup);
+      console.log(articles);
     })
     .catch(error => console.log(error));
 }
